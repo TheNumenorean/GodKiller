@@ -26,7 +26,7 @@ public class GKMain extends JavaPlugin {
 	public void onEnable() {
 		log.info("GodKiller enabled.");
 		setupPermissions();
-		config = this.getConfiguration();
+		//config = this.getConfiguration();
 		this.getServer().getPluginManager().registerEvent(Event.Type.ENTITY_DAMAGE, new GKListener(), Event.Priority.Highest, this);
 
 	}
