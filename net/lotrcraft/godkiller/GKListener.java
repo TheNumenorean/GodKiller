@@ -14,9 +14,9 @@ public class GKListener extends EntityListener{
 			if (e.getDamager() instanceof Player){
 				Player dmgr = (Player) e.getDamager();
 				if (!GKMain.permissionHandler.has(dmgr, "GK.kill")) {
-				      return;
+				    return;
 				}
-				if (Bukkit.getServer().getPluginManager().isPluginEnabled("WheatHeal") == true && dmgr.getItemInHand().getType().equals(Material.WHEAT)){
+				if (Bukkit.getServer().getPluginManager().isPluginEnabled("WheatHeal") && dmgr.getItemInHand().getType().equals(296 | 319 | 320 | 349 | 350 | 297 | 357 | 260 | 322 | 282)){
 					return;
 				}
 				e.getEntity().getLastDamageCause().setCancelled(false);
