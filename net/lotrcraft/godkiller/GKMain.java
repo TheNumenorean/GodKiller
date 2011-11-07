@@ -5,8 +5,6 @@ import java.util.logging.Logger;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.util.config.Configuration;
-
 import com.nijiko.permissions.PermissionHandler;
 import com.nijikokun.bukkit.Permissions.Permissions;
 
@@ -14,7 +12,6 @@ public class GKMain extends JavaPlugin {
 	
 	public static PermissionHandler permissionHandler;
 	Logger log = Logger.getLogger("minecraft");
-	Configuration config;
 
 	@Override
 	public void onDisable() {
@@ -39,7 +36,7 @@ public class GKMain extends JavaPlugin {
 	    Plugin permissionsPlugin = this.getServer().getPluginManager().getPlugin("Permissions");
 	    
 	    if (permissionsPlugin == null) {
-	        log.info("Permission system not detected, defaulting to OP");
+	        log.info("Permissions not detected, switching to BukkitPermissions");
 	        return;
 	    }
 	    

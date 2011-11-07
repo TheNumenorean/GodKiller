@@ -1,7 +1,5 @@
 package net.lotrcraft.godkiller;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -13,12 +11,13 @@ public class GKListener extends EntityListener{
 			EntityDamageByEntityEvent e = (EntityDamageByEntityEvent)event;
 			if (e.getDamager() instanceof Player){
 				Player dmgr = (Player) e.getDamager();
-				if (!GKMain.permissionHandler.has(dmgr, "GK.kill")) {
-				    return;
-				}
-				if (Bukkit.getServer().getPluginManager().isPluginEnabled("WheatHeal") && dmgr.getItemInHand().getType().equals(296 | 319 | 320 | 349 | 350 | 297 | 357 | 260 | 322 | 282)){
-					return;
-				}
+				if (GKMain.permissionHandler != null) {
+				    if (!GKMain.permissionHandler.has(dmgr, "GK.kill")){
+				    	return;
+				    } 
+				}else if (!dmgr.hasPermission("GK.kill")){
+			    	return;
+			    }
 				e.getEntity().getLastDamageCause().setCancelled(false);
 				
 				
